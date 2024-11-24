@@ -1,19 +1,18 @@
 const library = (function(){
-    const read = [];
-    const wishlist = [];
+    const books = [];
 
     const addBook = function(book){
-        if (book.status === true){
-            read.push(book);
-        } else {
-            wishlist.push(book);
-        }
+        books.push(book);
+    }
+
+    const removeBook = function(book){
+        books.splice(books.indexOf[book]);
     }
 
     return {
-        read,
-        wishlist,
-        addBook
+        addBook,
+        removeBook, 
+        books
     }
 })();
 
@@ -42,6 +41,9 @@ const book1 = new Book('Title', 'Author', 329, true);
 console.log(book1);
 
 library.addBook(book1);
-console.log(library.read);
+book1.changeStatus();
+
+library.removeBook(book1)
+console.log(library.books);
 
 
