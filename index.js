@@ -1,3 +1,22 @@
+const library = (function(){
+    const read = [];
+    const wishlist = [];
+
+    const addBook = function(book){
+        if (book.status === true){
+            read.push(book);
+        } else {
+            wishlist.push(book);
+        }
+    }
+
+    return {
+        read,
+        wishlist,
+        addBook
+    }
+})();
+
 class Book {
     constructor(title, author, pages, status){
         this.title = title;
@@ -21,5 +40,8 @@ class Book {
 
 const book1 = new Book('Title', 'Author', 329, true);
 console.log(book1);
-book1.changeStatus();
-console.log(book1);
+
+library.addBook(book1);
+console.log(library.read);
+
+
