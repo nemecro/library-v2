@@ -3,9 +3,13 @@ class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.status = status;
+        if (status === true || status === false){
+            this.status = status;
+        } else {
+            alert('Invalid input');
+        }
     }
 }
 
-const book1 = new Book('Title', 'Author', 329, 'read');
+const book1 = new Book('Title', 'Author', 329, true);
 console.log(book1);
