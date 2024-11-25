@@ -46,4 +46,10 @@ book1.changeStatus();
 library.removeBook(book1)
 console.log(library.books);
 
+/* TO BE DELETED */
 
+const addBtn = document.querySelector('#add-book-btn');
+const modal = document.querySelector('#add-book-modal');
+addBtn.addEventListener('click', () => {
+    modal.showModal();
+});

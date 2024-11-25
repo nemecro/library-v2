@@ -51,6 +51,7 @@
     --red: #e74337;
     --white: #F6F6F8;
     --dark-purple: #301641;
+    --dark-purple-a: #3016416b;
     --green: #0B6E4F;
 
 }
@@ -209,4 +210,16 @@ footer {
 
 button {
   cursor: pointer;
+}
+
+#add-book-modal::backdrop {
+  background-color: var(--dark-purple-a);
+}
+
+#add-book-modal {
+  width: 35%;
+  margin: auto;
+  background-color: var(--white);
+  border: none;
+  border-radius: 6px;
 }
