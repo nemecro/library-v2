@@ -55,12 +55,14 @@
 
 body {
   font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+  background-color: var(--white);
   color: var(--dark-purple);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem 2rem;
 }
 
@@ -73,17 +75,31 @@ nav > header {
 nav > ul {
   list-style-type: none;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  border: 2px solid var(--dark-purple);
+  border-radius: 6px;
   padding: 0;
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--dark-purple);
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: 250ms;
+  border-radius: 4px;
+  display: inline-block;
+  height: 100%;
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-link:hover {
+  background-color: var(--pale-red);
+  color: var(--white);
 }
 
 #app-logo {
-  width: 2rem;
-  filter: invert(12%) sepia(20%) saturate(3162%) hue-rotate(243deg) brightness(93%) contrast(100%);
+  width: 32px;
+  fill: none;
+  stroke: var(--dark-purple);
 }
