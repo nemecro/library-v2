@@ -123,7 +123,7 @@ main {
 #library {
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   gap: 1rem;
   padding: 1rem;
 }
@@ -144,7 +144,7 @@ main {
   justify-content: space-between;
   align-items: center;
 
-  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.295);
+  box-shadow: 2px 2px 2px 2px var(--dark-purple);
 }
 
 .book-card-actions {
@@ -159,6 +159,12 @@ main {
   border: none;
   border-radius: 6px;
   padding: 0.25rem 0.5rem;
+  opacity: 0.9;
+  transition: 250ms;
+}
+
+.book-card-actions > button:hover {
+  opacity: 1;
 }
 
 .book-card-actions > button[value="change"]{
@@ -167,4 +173,40 @@ main {
 
 .book-card-actions > button[value="remove"]{
   background-color: var(--red);
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--pale-red);
+  color: var(--white);
+  box-shadow: 2px 2px 10px 2px var(--dark-purple);
+  border-radius: 6px;
+}
+
+#add-book-btn {
+  display: block;
+  border-radius: 6px;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  transition: 250ms;
+}
+
+#add-book-btn:hover {
+  background-color: var(--white);
+  color: var(--pale-red);
+}
+
+button {
+  cursor: pointer;
 }
