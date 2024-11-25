@@ -50,10 +50,18 @@
     --pale-red: #E46258;
     --salmon: #FC7A72;
     --white: #F6F6F8;
+    --dark-purple: #301641;
 }
 
 body {
   font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+  color: var(--dark-purple);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
 }
 
 nav > header {
@@ -62,6 +70,20 @@ nav > header {
   font-size: 1.5rem;
 }
 
+nav > ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-purple);
+}
+
 #app-logo {
   width: 2rem;
+  filter: invert(12%) sepia(20%) saturate(3162%) hue-rotate(243deg) brightness(93%) contrast(100%);
 }
