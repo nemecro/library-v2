@@ -103,3 +103,13 @@ nav > ul {
   fill: none;
   stroke: var(--dark-purple);
 }
+
+main {
+  padding: 2rem;
+}
+
+.flex-col-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
