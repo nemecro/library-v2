@@ -68,7 +68,7 @@
             </button>
         </header>
         <p>Required fields are marked by *</p>
-        <form action="" method="dialog">
+        <form method="dialog">
             <fieldset id="book-information">
                 <legend>Book information</legend>
                 <label for="title">Title: <span aria-label="required">*</span></label>
@@ -80,8 +80,8 @@
             </fieldset>
             <fieldset>
                 <legend>Status</legend>
-                <label><input type="radio" name="status" id="read" checked>Add to read</label>
-                <label><input type="radio" name="status" id="wishlist">Add to wishlist</label>
+                <label><input type="radio" name="status" id="read" value="true" checked>Add to read</label>
+                <label><input type="radio" name="status" id="wishlist" value="false">Add to wishlist</label>
             </fieldset>
             <button>Add</button>
         </form>

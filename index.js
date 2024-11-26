@@ -63,6 +63,8 @@ const DOM = (function(){
     });
     form.addEventListener('submit', () => {
         modal.close();
+        // get the data from the form in an object key value pairs
+        const data = Object.fromEntries(new FormData(form));
     })
 })();
 
