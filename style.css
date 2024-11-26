@@ -223,3 +223,20 @@ button {
   border: none;
   border-radius: 6px;
 }
+
+#modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#close-modal {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-sm {
+  width: 32px;
+  fill: none;
+  stroke: var(--dark-purple);
+}
