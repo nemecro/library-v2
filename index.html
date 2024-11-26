@@ -68,7 +68,23 @@
             </button>
         </header>
         <form action="" method="dialog">
-
+            <fieldset>
+                <legend>Book information</legend>
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title" autofocus>
+                <label for="author">Author: </label>
+                <input type="text" name="author" id="author">
+                <label for="pages">Number of pages: </label>
+                <input type="number" name="pages" id="pages">
+            </fieldset>
+            <fieldset>
+                <legend>Status</legend>
+                <input type="radio" name="status" id="read" checked>
+                <label for="read">Add to read</label>
+                <input type="radio" name="status" id="wishlist">
+                <label for="wishlist">Add to wishlist</label>
+            </fieldset>
+            <button>Add</button>
         </form>
     </dialog>
 
