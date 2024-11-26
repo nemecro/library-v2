@@ -40,7 +40,6 @@ class Book {
 }
 
 const DOM = (function(){
-    // MAIN PAGE
     const addBtn = document.querySelector('#add-book-btn');
     const modal = document.querySelector('#add-book-modal');
     const closeBtn = modal.querySelector('#close-modal');
@@ -66,7 +65,6 @@ const DOM = (function(){
     const wishlistSection = document.querySelector('#wishlist');
 
     const refresh = function(){
-        // clear all the previous records first
         readSection.children[1].innerHTML = '';
         wishlistSection.children[1].innerHTML = '';
 
