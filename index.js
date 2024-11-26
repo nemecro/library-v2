@@ -21,7 +21,7 @@ class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        if (status === true || status === false){
+        if (status === 'read' || status === 'wishlist'){
             this.status = status;
         } else {
             alert('Invalid input');
@@ -29,22 +29,24 @@ class Book {
     }
 
     changeStatus(){
-        if (this.status === true){
-            this.status = false;
+        if (this.status === 'read'){
+            this.status = 'wishlist';
         } else {
-            this.status = true;
+            this.status = 'read';
         }
     }
 }
 
-const book1 = new Book('Title', 'Author', 329, true);
-console.log(book1);
+const book1 = new Book('Title', 'Author', 329, 'wishlist');
+
 
 library.addBook(book1);
 book1.changeStatus();
+console.log(book1);
 
 library.removeBook(book1)
 console.log(library.books);
+
 
 /* TO BE DELETED */
 
@@ -64,7 +66,9 @@ const DOM = (function(){
     form.addEventListener('submit', () => {
         modal.close();
         // get the data from the form in an object key value pairs
-        const data = Object.fromEntries(new FormData(form));
+        let data = Object.fromEntries(new FormData(form));
+        data = new Book(data.title, data.author, data.pages, data.status);
+        library.addBook(data);
     })
 })();
 
