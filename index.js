@@ -48,8 +48,22 @@ console.log(library.books);
 
 /* TO BE DELETED */
 
-const addBtn = document.querySelector('#add-book-btn');
-const modal = document.querySelector('#add-book-modal');
-addBtn.addEventListener('click', () => {
-    modal.showModal();
-});
+const DOM = (function(){
+    // MAIN PAGE
+    const addBtn = document.querySelector('#add-book-btn');
+    const modal = document.querySelector('#add-book-modal');
+    const closeBtn = modal.querySelector('#close-modal');
+    const form = modal.querySelector('form');
+
+    addBtn.addEventListener('click', () => {
+        modal.showModal();
+    });
+    closeBtn.addEventListener('click', () => {
+        modal.close();
+    });
+    form.addEventListener('submit', () => {
+        modal.close();
+    })
+})();
+
+
