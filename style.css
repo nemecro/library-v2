@@ -175,11 +175,7 @@ main {
   background-color: var(--red);
 }
 
-footer {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  right: 0;
+.add-book-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -190,6 +186,10 @@ footer {
   color: var(--white);
   box-shadow: 2px 2px 10px 2px var(--dark-purple);
   border-radius: 6px;
+}
+
+#read > h2, #wishlist > h2 {
+  text-align: center;
 }
 
 #add-book-btn {
