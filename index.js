@@ -6,7 +6,9 @@ const library = (function(){
     }
 
     const removeBook = function(book){
-        books.splice(books.indexOf[book]);
+        // using simply indexOf returns undefined and therefore clears the entire array
+        const index = books.map(e => e.title).indexOf(book.title);
+        books.splice(index, 1);
     }
 
     return {
@@ -37,19 +39,6 @@ class Book {
     }
 }
 
-const book1 = new Book('Title', 'Author', 329, 'wishlist');
-
-
-library.addBook(book1);
-book1.changeStatus();
-console.log(book1);
-
-library.removeBook(book1)
-console.log(library.books);
-
-
-/* TO BE DELETED */
-
 const DOM = (function(){
     // MAIN PAGE
     const addBtn = document.querySelector('#add-book-btn');
@@ -67,9 +56,68 @@ const DOM = (function(){
         modal.close();
         // get the data from the form in an object key value pairs
         let data = Object.fromEntries(new FormData(form));
+
         data = new Book(data.title, data.author, data.pages, data.status);
         library.addBook(data);
-    })
+        DOM.refresh();
+    });
+
+    const readSection = document.querySelector('#read');
+    const wishlistSection = document.querySelector('#wishlist');
+
+    const refresh = function(){
+        // clear all the previous records first
+        readSection.children[1].innerHTML = '';
+        wishlistSection.children[1].innerHTML = '';
+
+        library.books.forEach((book) => {
+            const bookCard = document.createElement('div');
+            const bookCardInfo = document.createElement('div');
+            const bookCardActions = document.createElement('div');
+            const title = document.createElement('h3');
+            const author = document.createElement('h4');
+            const pages = document.createElement('p');
+            const changeBtn = document.createElement('button');
+            const removeBtn = document.createElement('button');
+
+            bookCard.classList.add('book-card');
+            bookCardInfo.classList.add('book-card-info');
+            bookCardActions.classList.add('book-card-actions');
+
+            title.textContent = book.title;
+            author.textContent = book.author;
+            pages.textContent = book.pages;
+            
+            changeBtn.textContent = 'Change';
+            changeBtn.value = 'change';
+            removeBtn.textContent = 'Remove';
+            removeBtn.value = 'remove';
+
+            changeBtn.addEventListener('click', () => {
+                book.changeStatus();
+                refresh();
+            });
+
+            removeBtn.addEventListener('click', () => {
+                library.removeBook(book);
+                refresh();
+            })
+
+            bookCard.append(bookCardInfo, bookCardActions);
+            bookCardInfo.append(title, author, pages);
+            bookCardActions.append(changeBtn, removeBtn);
+
+            if (book.status === 'read'){
+                readSection.children[1].appendChild(bookCard);
+            } else {
+                wishlistSection.children[1].appendChild(bookCard);
+            }
+        });
+    };
+
+    return {
+        refresh
+    }
 })();
 
 
